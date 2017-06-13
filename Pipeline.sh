@@ -1,4 +1,4 @@
-#bash!
+#!/bin/sh
 
 ########################Preprocessing#######################
 preproc-sess -s sess01 -fsd bold -per-run -surface  self lhrh -fwhm 5
