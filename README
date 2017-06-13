@@ -1,3 +1,19 @@
 # how to create the retinotopy map
 create the FSFAST structure
 For details see the Power Point presentation.
+
+
+ some useful links to learn
+retinotopy                    
+
+      https://surfer.nmr.mgh.harvard.edu/fswiki/FsFastIndividualRetinotopyAnalysis
+      
+Flattening a surface  
+
+      https://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferOccipitalFlattenedPatch
+      
+other source                  
+
+      http://kylemathewson.com/retinotopy-in-freesurfercnl-protocol/
+			http://www.alivelearn.net/?p=65
+		  http://afni.nimh.nih.gov/pub/dist/edu/human_freesurfer/fs_hands-on/fs_hands-on.pdf
