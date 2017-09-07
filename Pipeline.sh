@@ -7,8 +7,8 @@ tkregister2 --s sess01 --mov ./sess01/bold/001/fmcpr.nii.gz --reg ./sess01/bold/
 
 ##########################Design Matrix ###############################
 # if you only have eccen files , copy the eccen and rename the par file to polar
-mkanalysis-sess -a rtopy.self.lh -per-run -fsd bold -surface self lh -TR 2.2 -retinotopy 60 -paradigm rtopy.par -nskip 9 -fwhm 0
-mkanalysis-sess -a rtopy.self.rh -per-run -fsd bold -surface self rh -TR 2.2 -retinotopy 60 -paradigm rtopy.par -nskip 9 -fwhm 0
+mkanalysis-sess -a rtopy.self.lh -per-run -fsd bold -surface self lh -TR 2.2 -retinotopy 60 -paradigm rtopy.par -fwhm 0
+mkanalysis-sess -a rtopy.self.rh -per-run -fsd bold -surface self rh -TR 2.2 -retinotopy 60 -paradigm rtopy.par -fwhm 0
 
 ####################blocked####################
 mkanalysis-sess -a abblock.self.lh -per-run -fsd bold -surface self lh -TR 2.2 -abblocked 22 -paradigm -fwhm 0
@@ -16,16 +16,14 @@ mkanalysis-sess -a abblock.self.rh -per-run -fsd bold -surface self rh -TR 2.2 -
 
 ###########################Calculating the Design Matrix################################
 # the -s for specific subject or session here is sess01 
-selxavg3-sess -a rtopy.self.rh -s sess01
-selxavg3-sess -a rtopy.self.lh -s sess01
+selxavg3-sess -a rtopy.self.rh -s sess01 -no-preproc
+selxavg3-sess -a rtopy.self.lh -s sess01 -no-preproc
 # or for multiple subjects
-selxavg3-sess -a rtopy.self.rh -sf sessid
-selxavg3-sess -a rtopy.self.lh -sf sessid
+selxavg3-sess -a rtopy.self.rh -sf sessid -no-preproc
+selxavg3-sess -a rtopy.self.lh -sf sessid -no-preproc
 # or alternatively
-selxavg3-sess -a rtopy.self.rh -s sess01  -s sess02 -s sess03
-selxavg3-sess -a rtopy.self.lh -s sess01  -s sess02 -s sess03
-sfa-sess -a rtopy.self.rh -sf sess01
-sfa-sess -a rtopy.self.lh -sf sess01
+selxavg3-sess -a rtopy.self.rh -s sess01  -s sess02 -s sess03 -no-preproc
+selxavg3-sess -a rtopy.self.lh -s sess01  -s sess02 -s sess03 -no-preproc
 
 ###############################Creating the FieldMap #########################
 fieldsign-sess -a rtopy.self.rh -sphere -s sess01
