@@ -1,9 +1,9 @@
 #!/bin/sh
 
 ########################Preprocessing#######################
-preproc-sess -s sess01 -fsd bold -per-run -surface  self lhrh -fwhm 5
+preproc-sess -s sess01 -fsd bold -per-run -surface  self lhrh -fwhm 3
 # check the registration
-tkregister2 --s sess01 --mov ./sess01/bold/001/fmcpr.nii.gz --reg ./sess01/bold/001/init.register.dof6.dat --surf
+tkregister2 --s sess01 --mov ./sess01/bold/001/fmcpr.nii.gz --reg ./sess01/bold/001/register.dof6.dat --surf
 
 ##########################Design Matrix ###############################
 # if you only have eccen files , copy the eccen and rename the par file to polar
@@ -28,6 +28,7 @@ selxavg3-sess -a rtopy.self.lh -s sess01  -s sess02 -s sess03 -no-preproc
 ###############################Creating the FieldMap #########################
 fieldsign-sess -a rtopy.self.rh -sphere -s sess01
 fieldsign-sess -a rtopy.self.lh -sphere -s sess01
+
 # if you have created the flat surface named for example  OccipitalSurf.? (lh/rh)
 fieldsign-sess -a rtopy.self.rh -occip -s sess01
 
