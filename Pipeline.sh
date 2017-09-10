@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ########################Preprocessing#######################
-preproc-sess -s sess01 -fsd bold -per-run -surface  self lhrh -fwhm 3
+preproc-sess -s sess01 -fsd bold -per-run -surface  self lhrh -fwhm 4.5 -nostc -force
 # check the registration
 tkregister2 --s sess01 --mov ./sess01/bold/001/fmcpr.nii.gz --reg ./sess01/bold/001/register.dof6.dat --surf
 
