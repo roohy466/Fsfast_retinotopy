@@ -4,18 +4,21 @@
 # /data/tmp/sub_01/mri/orig/1.mgz
 # the SUBJECTS_DIR can be anything! here just an example
 SUBJECTS_DIR=/data/tmp
+cd $SUBJECTS_DIR
 recon-all -all -s sub-01
 
 ######################Creating the occipital flat##########
-# creating the occipital patch
+# creating the occipital patch read the freesurfer manual
+cd $SUBJECTS_DIR/sub_01/surf
 mris_flatten -w 0 -distances 12 7 lh.occip.patch.3d lh.occip.patch.flat
 mris_flatten -w 0 -distances 12 7 rh.occip.patch.3d rh.occip.patch.flat
+cd ../..
 
 ########################Preprocessing#######################
 # preprocessing without time correction
 preproc-sess -s sub_01 -fsd bold -per-run -surface self lhrh -fwhm 4  -nostc -force
-# check the registration
-## Optional# only for checking
+
+## Optional# only for checking the registration
 cd sub_01 
 tkregister2 --mov bold/template.nii.gz --reg bold/init.register.dof6.dat --surf
 cd ..
