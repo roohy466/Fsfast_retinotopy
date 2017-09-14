@@ -1,7 +1,9 @@
 # how to create the retinotopy map
 Here with using a subjects from studyforest we can regenerate the retinotopy map
+The complete data set with command can be downloaded from the link:
+https://www.dropbox.com/s/alak8b4n2g81rrw/sub_01.zip?dl=0
 
-create the FSFAST structure
+follow the commands or create the FSFAST structure
 For details see the Power Point presentation.
 
 
